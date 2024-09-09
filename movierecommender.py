@@ -200,35 +200,35 @@ if st.button("recommend movies"):
     col1,col2,col3,col4,col5=st.columns(5)
     if(k<j):
         with col1:
-            st.text(movie_name[i-j-1])
-            st.image(movie_poster[i-j-1])
+            st.text(movie_name[i-j])
+            st.image(movie_poster[i-j])
         k=k+1
         
     if(k<j):    
         with col2:
-            st.text(movie_name[i-j])
-            st.image(movie_poster[i-j])
+            st.text(movie_name[i-j+1])
+            st.image(movie_poster[i-j+1])
             k=k+1
     
             
     if(k<j):        
         with col3:
-            st.text(movie_name[i+1-j])
-            st.image(movie_poster[i+1-j])
-            k=k+1
-    
-        
-    if(k<j):       
-        with col4:
             st.text(movie_name[i+2-j])
             st.image(movie_poster[i+2-j])
             k=k+1
     
         
-    if(k<j):
-        with col5:
+    if(k<j):       
+        with col4:
             st.text(movie_name[i+3-j])
             st.image(movie_poster[i+3-j])
+            k=k+1
+    
+        
+    if(k<j):
+        with col5:
+            st.text(movie_name[i+4-j])
+            st.image(movie_poster[i+4-j])
             k=k+1
     
               
