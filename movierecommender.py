@@ -176,23 +176,62 @@ def recommend(director):
 if st.button("recommend movies"):
     st.header("These are some recommendations")
     movie_name,movie_poster=recommend(selected_director)
-    col1,col2,col3,col4,col5=st.columns(5)
+    for i in range(0,int(len(movie_name)/5),1):
+        col1,col2,col3,col4,col5=st.columns(5)
     
-    with col1:
-        st.text(movie_name[0])
-        st.image(movie_poster[0])
-    with col2:
-        st.text(movie_name[1])
-        st.image(movie_poster[1])
-    with col3:
-        st.text(movie_name[2])
-        st.image(movie_poster[2])
-    with col4:
-        st.text(movie_name[3])
-        st.image(movie_poster[3])
-    with col5:
-        st.text(movie_name[4])
-        st.image(movie_poster[4])
+        with col1:
+            st.text(movie_name[i*5])
+            st.image(movie_poster[i*5])
+        with col2:
+            st.text(movie_name[i*5+1])
+            st.image(movie_poster[i*5+1])
+        with col3:
+            st.text(movie_name[i*5+2])
+            st.image(movie_poster[i*5+2])
+        with col4:
+            st.text(movie_name[i*5+3])
+            st.image(movie_poster[i*5+3])
+        with col5:
+            st.text(movie_name[i*5+4])
+            st.image(movie_poster[i*5+4])
+    i=len(movie_name)
+    j=len(movie_name)%5
+    k=0
+    col1,col2,col3,col4,col5=st.columns(5)
+    if(k<j):
+        with col1:
+            st.text(movie_name[i-j-1])
+            st.image(movie_poster[i-j-1])
+        k=k+1
+        
+    if(k<j):    
+        with col2:
+            st.text(movie_name[i-j])
+            st.image(movie_poster[i-j])
+            k=k+1
+    
+            
+    if(k<j):        
+        with col3:
+            st.text(movie_name[i+1-j])
+            st.image(movie_poster[i+1-j])
+            k=k+1
+    
+        
+    if(k<j):       
+        with col4:
+            st.text(movie_name[i+2-j])
+            st.image(movie_poster[i+2-j])
+            k=k+1
+    
+        
+    if(k<j):
+        with col5:
+            st.text(movie_name[i+3-j])
+            st.image(movie_poster[i+3-j])
+            k=k+1
+    
+              
 else:
     movie_name,movie_poster=recommend("James Cameron")
     col1,col2,col3,col4,col5=st.columns(5)
@@ -212,3 +251,4 @@ else:
     with col5:
         st.text(movie_name[4])
         st.image(movie_poster[4])
+
